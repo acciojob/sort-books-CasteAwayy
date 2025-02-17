@@ -9,50 +9,46 @@ const App = () => {
     const dispatch = useDispatch();
     const { bookDetails, status } = useSelector((state) => state);
     useEffect(() => {
-        // dispatch(created());
+        dispatch(created());
     }, []);
     return (
         <div>
-            <h1>Books List</h1>
+            <select
+                id="sortBy"
+                value={sortOptions}
+                onChange={(e) => {
+                    setSortOptions(e.target.value);
+                    dispatch(
+                        sortBookOptions(
+                            e.target.value.toLowerCase(),
+                            sortBy.toLowerCase()
+                        )
+                    );
+                }}
+            >
+                <option value="Title">Title</option>
+                <option value="Author">Author</option>
+                <option value="Publisher">Publisher</option>
+            </select>
+            <select
+                id="order"
+                value={sortBy}
+                onChange={(e) => {
+                    setSortBy(e.target.value);
+                    dispatch(
+                        sortByOrder(
+                            sortOptions.toLowerCase(),
+                            e.target.value.toLowerCase()
+                        )
+                    );
+                }}
+            >
+                <option value="Ascending">Ascending</option>
+                <option value="Descending">Descending</option>
+            </select>
             <label htmlFor="sortBy">Sort by:</label>
-            <div>
-                <select
-                    id="sortBy"
-                    value={sortOptions}
-                    onChange={(e) => {
-                        setSortOptions(e.target.value);
-                        dispatch(
-                            sortBookOptions(
-                                e.target.value.toLowerCase(),
-                                sortBy.toLowerCase()
-                            )
-                        );
-                    }}
-                >
-                    <option value="Title">Title</option>
-                    <option value="Author">Author</option>
-                    <option value="Publisher">Publisher</option>
-                </select>
-            </div>
-            <div>
-                <label htmlFor="order">Order:</label>
-                <select
-                    id="order"
-                    value={sortBy}
-                    onChange={(e) => {
-                        setSortBy(e.target.value);
-                        dispatch(
-                            sortByOrder(
-                                sortOptions.toLowerCase(),
-                                e.target.value.toLowerCase()
-                            )
-                        );
-                    }}
-                >
-                    <option value="Ascending">Ascending</option>
-                    <option value="Descending">Descending</option>
-                </select>
-            </div>
+            <label htmlFor="order">Order:</label>
+            <h1>Books List</h1>
             <table border="1" cellPadding="10">
                 <thead>
                     <tr>
