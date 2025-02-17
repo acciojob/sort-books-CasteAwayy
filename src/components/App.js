@@ -12,7 +12,7 @@ const App = () => {
         dispatch(created());
     }, []);
     return (
-        <div>
+        <>
             <select
                 id="sortBy"
                 value={sortOptions}
@@ -74,7 +74,7 @@ const App = () => {
                     </tbody>
                 )}
             </table>
-        </div>
+        </>
     );
 };
 
