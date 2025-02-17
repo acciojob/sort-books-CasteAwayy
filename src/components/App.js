@@ -13,39 +13,43 @@ const App = () => {
     }, []);
     return (
         <>
-            <select
-                id="sortBy"
-                value={sortOptions}
-                onChange={(e) => {
-                    setSortOptions(e.target.value);
-                    dispatch(
-                        sortBookOptions(
-                            e.target.value.toLowerCase(),
-                            sortBy.toLowerCase()
-                        )
-                    );
-                }}
-            >
-                <option value="Title">Title</option>
-                <option value="Author">Author</option>
-                <option value="Publisher">Publisher</option>
-            </select>
-            <select
-                id="order"
-                value={sortBy}
-                onChange={(e) => {
-                    setSortBy(e.target.value);
-                    dispatch(
-                        sortByOrder(
-                            sortOptions.toLowerCase(),
-                            e.target.value.toLowerCase()
-                        )
-                    );
-                }}
-            >
-                <option value="Ascending">Ascending</option>
-                <option value="Descending">Descending</option>
-            </select>
+            <div>
+                <select
+                    id="sortBy"
+                    value={sortOptions}
+                    onChange={(e) => {
+                        setSortOptions(e.target.value);
+                        dispatch(
+                            sortBookOptions(
+                                e.target.value.toLowerCase(),
+                                sortBy.toLowerCase()
+                            )
+                        );
+                    }}
+                >
+                    <option value="Title">Title</option>
+                    <option value="Author">Author</option>
+                    <option value="Publisher">Publisher</option>
+                </select>
+            </div>
+            <div>
+                <select
+                    id="order"
+                    value={sortBy}
+                    onChange={(e) => {
+                        setSortBy(e.target.value);
+                        dispatch(
+                            sortByOrder(
+                                sortOptions.toLowerCase(),
+                                e.target.value.toLowerCase()
+                            )
+                        );
+                    }}
+                >
+                    <option value="Ascending">Ascending</option>
+                    <option value="Descending">Descending</option>
+                </select>
+            </div>
             <label htmlFor="sortBy">Sort by:</label>
             <label htmlFor="order">Order:</label>
             <h1>Books List</h1>
