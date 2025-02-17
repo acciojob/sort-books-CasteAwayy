@@ -20,7 +20,7 @@ function booksReducer(state = initialState, action) {
         case "books/sortBookOptions":
             return {
                 ...state,
-                bookDetails: state.bookDetails.toSorted((a, b) =>
+                bookDetails: state.bookDetails.sort((a, b) =>
                     compare(
                         a[action.payload.value],
                         b[action.payload.value],
@@ -31,7 +31,7 @@ function booksReducer(state = initialState, action) {
         case "books/sortByOrder":
             return {
                 ...state,
-                bookDetails: state.bookDetails.toSorted((a, b) =>
+                bookDetails: state.bookDetails.sort((a, b) =>
                     compare(
                         a[action.payload.value],
                         b[action.payload.value],
