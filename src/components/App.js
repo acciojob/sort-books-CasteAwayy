@@ -14,7 +14,7 @@ const App = () => {
     return (
         <div>
             <h1>Books List</h1>
-            <label htmlFor="sortBy">sort by</label>
+            <label htmlFor="sortBy">Sort by:</label>
             <select
                 id="sortBy"
                 value={sortOptions}
@@ -32,7 +32,7 @@ const App = () => {
                 <option value="Author">Author</option>
                 <option value="Publisher">Publisher</option>
             </select>
-            <label htmlFor="order">order</label>
+            <label htmlFor="order">Order:</label>
             <select
                 id="order"
                 value={sortBy}
